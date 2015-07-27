@@ -7,6 +7,9 @@ class PlaceDetailViewController: UIViewController {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var phoneNumberLabel: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var ratingListTableView: UITableView! {
+        didSet{ ratingListTableView.tableFooterView = UIView() } // To hide empty cells
+    }
     
     var placeInfo: JSON! {
         didSet {
@@ -22,5 +25,4 @@ class PlaceDetailViewController: UIViewController {
         let rating = placeInfo["rating"].doubleValue
         ratingImageView.image = getRatingStarImgFor(rating)
     }
-    
 }

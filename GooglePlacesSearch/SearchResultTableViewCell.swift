@@ -1,8 +1,8 @@
 
 import UIKit
 
+// Round number to the nearest 0.5 Output examples: 0.5, 1, 1.5, 2, 2.5....
 func getRatingStarImgFor(rating: Double) -> UIImage? {
-    // Round to the nearest 0.5 Example: 0.5, 1, 1.5, 2, 2.5....
     var roundedRating = Double(Int(rating * 2 + 0.5))/2.0
     return UIImage(named: "star\(roundedRating).png")
 }

@@ -18,15 +18,22 @@ class JSONManager {
     }
     
     func getAddressLatLngitude() -> String? {
-        let requestURL = APIconstants.GoogleGeocodeBaseURL + "address=" + parameters["address"]!
+        var latLngitude: String?
+        var formattedAddress: String?
+        
+        if let address = parameters["address"] {
+            formattedAddress = address.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        }
+        
+        let requestURL = APIconstants.GoogleGeocodeBaseURL + "address=" + (formattedAddress ?? "")
         let json = getJSONfromAPIURL(requestURL)
         
         if let lat = json["results"][0]["geometry"]["location"]["lat"].double,
             let lng = json["results"][0]["geometry"]["location"]["lng"].double {
-                return "\(lat)"+","+"\(lng)"
+                latLngitude = "\(lat)"+","+"\(lng)"
         }
         
-        return nil
+        return latLngitude
     }
     
     // MARK: - JSON configuration functions
@@ -89,6 +96,11 @@ class JSONManager {
     }
     
     private func configureParameters() {
+        // To use the APIs, replacing all spaces in strings with "+"
+        for (parameter, value) in parameters {
+            parameters[parameter] = value.stringByReplacingOccurrencesOfString(" ", withString: "+")
+        }
+        
         parameters["key"] = APIconstants.GoogleAPIKeys
         
         if parameters["address"] != nil {
@@ -97,11 +109,5 @@ class JSONManager {
                 parameters["address"] = nil
             }
         }
-    }
-    
-    // MARK: - To be implemented
-    
-    func failedGettingJSON() {
-        
     }
 }

@@ -15,7 +15,7 @@
 		364718111B47A4C600ED94C4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 364718101B47A4C600ED94C4 /* Images.xcassets */; };
 		364718141B47A4C600ED94C4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 364718121B47A4C600ED94C4 /* LaunchScreen.xib */; };
 		364718201B47A4C600ED94C4 /* GooglePlacesSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647181F1B47A4C600ED94C4 /* GooglePlacesSearchTests.swift */; };
-		3647182A1B47A56C00ED94C4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364718291B47A56C00ED94C4 /* SearchResultViewController.swift */; };
+		3647182A1B47A56C00ED94C4 /* SearchResultListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 364718291B47A56C00ED94C4 /* SearchResultListViewController.swift */; };
 		3647182C1B47AD0300ED94C4 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647182B1B47AD0300ED94C4 /* SwiftyJSON.swift */; };
 		3647182E1B47B6EB00ED94C4 /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3647182D1B47B6EB00ED94C4 /* JSONManager.swift */; };
 /* End PBXBuildFile section */
@@ -43,7 +43,7 @@
 		364718191B47A4C600ED94C4 /* GooglePlacesSearchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GooglePlacesSearchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3647181E1B47A4C600ED94C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3647181F1B47A4C600ED94C4 /* GooglePlacesSearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlacesSearchTests.swift; sourceTree = "<group>"; };
-		364718291B47A56C00ED94C4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		364718291B47A56C00ED94C4 /* SearchResultListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultListViewController.swift; sourceTree = "<group>"; };
 		3647182B1B47AD0300ED94C4 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		3647182D1B47B6EB00ED94C4 /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,11 +89,11 @@
 			children = (
 				364718091B47A4C600ED94C4 /* AppDelegate.swift */,
 				3647180D1B47A4C600ED94C4 /* Main.storyboard */,
+				364718291B47A56C00ED94C4 /* SearchResultListViewController.swift */,
+				3631FF8D1B48E62B005052C3 /* FilterPageViewController.swift */,
 				3631FFC11B493896005052C3 /* PlaceDetailViewController.swift */,
 				3631FF5B1B48C06B005052C3 /* SearchResultTableViewCell.swift */,
-				364718291B47A56C00ED94C4 /* SearchResultViewController.swift */,
 				3647182D1B47B6EB00ED94C4 /* JSONManager.swift */,
-				3631FF8D1B48E62B005052C3 /* FilterPageViewController.swift */,
 				3647182B1B47AD0300ED94C4 /* SwiftyJSON.swift */,
 				364718101B47A4C600ED94C4 /* Images.xcassets */,
 				364718121B47A4C600ED94C4 /* LaunchScreen.xib */,
@@ -231,7 +231,7 @@
 				3631FF8E1B48E62B005052C3 /* FilterPageViewController.swift in Sources */,
 				3631FF5C1B48C06B005052C3 /* SearchResultTableViewCell.swift in Sources */,
 				3647182E1B47B6EB00ED94C4 /* JSONManager.swift in Sources */,
-				3647182A1B47A56C00ED94C4 /* SearchResultViewController.swift in Sources */,
+				3647182A1B47A56C00ED94C4 /* SearchResultListViewController.swift in Sources */,
 				3647180A1B47A4C600ED94C4 /* AppDelegate.swift in Sources */,
 				3631FFC21B493896005052C3 /* PlaceDetailViewController.swift in Sources */,
 			);

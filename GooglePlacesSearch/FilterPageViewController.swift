@@ -1,10 +1,10 @@
 
 import UIKit
 
-class FilterPageViewController: UIViewController {
+class FilterPageViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var keyWordField: UITextField!
-    @IBOutlet weak var searchRadiusField: UITextField!
+    @IBOutlet weak var keyWordField: UITextField! { didSet { keyWordField.delegate = self } }
+    @IBOutlet weak var searchRadiusField: UITextField! { didSet { searchRadiusField.delegate = self } }
     @IBOutlet weak var categorySelectionButton: UISegmentedControl!
     
     static let clearAllFilters = ["radius": "nil", "types": "nil", "keyword": "nil"]
@@ -19,6 +19,7 @@ class FilterPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showPreviousFilters()
+        addTabRecognizerToDismissKeyboard()
     }
     
     // MARK: - UI update functions
@@ -46,10 +47,14 @@ class FilterPageViewController: UIViewController {
     func updateSearchFilters() {
         if let keyword = keyWordField.text where !keyword.isEmpty {
             filterParameters["keyword"] = keyword
+        } else {
+            filterParameters["keyword"] = "nil"
         }
         
         if let searchRadius = searchRadiusField.text where !searchRadius.isEmpty {
             filterParameters["radius"] = searchRadius
+        } else {
+            filterParameters["radius"] = "nil"
         }
         
         let selectedCategory = categorySelectionButton.selectedSegmentIndex
@@ -59,11 +64,28 @@ class FilterPageViewController: UIViewController {
         }
     }
     
+    // Mark: - Text fields keyboard management
+    
+    func addTabRecognizerToDismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        performSegueWithIdentifier("SearchFromFiltersPage", sender: nil)
+        return true
+    }
+    
     // MARK: - Segue navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SearchFromFiltersPage" {
-            let searchListController = segue.destinationViewController as! SearchResultViewController
+            let searchListController = segue.destinationViewController as! SearchResultListViewController
             
             updateSearchFilters()
             
